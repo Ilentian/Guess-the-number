@@ -3,21 +3,21 @@
 
 int main()
 {
-	L1 L1_inst;
-	
-	std::cout << "Let's play a game. I'm thinking of a number. You have 7 tries to guess what it is.\n";
+	Game Game_inst;
 	
 	do
 	{
+		std::cout << "Let's play a game. I'm thinking of a number. You have 7 tries to guess what it is.\n";
+		
 		bool won{ false };
 
 		for (int i{ 0 }; i < 7; i++)
 		{
-			int guess{ L1_inst.getNumInput(false) };
+			int guess{ Game_inst.getNumInput(false) };
 
-			if (!L1_inst.compareToGenNumber(guess, false))
+			if (!Game_inst.compareToGenNumber(guess, false))
 			{
-				switch (L1_inst.greLowGenNum(guess))
+				switch (Game_inst.greLowGenNum(guess))
 				{
 				case '<':
 					std::cout << "Your guess is too low\n";
@@ -38,12 +38,10 @@ int main()
 
 		if (!won)
 		{
-			std::cout << "You lost. The correct number was " << L1_inst.getGenNumber() << '\n';
+			std::cout << "You lost. The correct number was " << Game_inst.getGenNumber() << '\n';
 		}
 
-	} while (L1_inst.playAgain());
-
-
+	} while (Game_inst.playAgain());
 
 	system("pause");
 
