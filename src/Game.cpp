@@ -1,9 +1,9 @@
-#include "L1.h"
+#include "Game.h"
 #include <iostream>
 #include <limits>
 #include <random>
 
-bool L1::compareToGenNumber(int guess, bool restartGame)
+bool Game::compareToGenNumber(int guess, bool restartGame)
 {
 	if (restartGame) number = 0;
 
@@ -32,7 +32,7 @@ bool L1::compareToGenNumber(int guess, bool restartGame)
 	}
 }
 
-int L1::getNumInput(bool restart)
+int Game::getNumInput(bool restart)
 {
 	static int guessNo{ 1 };
 
@@ -60,7 +60,7 @@ int L1::getNumInput(bool restart)
 	return x;
 }
 
-char L1::greLowGenNum(int guess)
+char Game::greLowGenNum(int guess)
 {
 	if (guess < number) return '<';
 
@@ -69,12 +69,12 @@ char L1::greLowGenNum(int guess)
 	return '=';
 }
 
-int L1::getGenNumber()
+int Game::getGenNumber()
 {
 	return number;
 }
 
-bool L1::playAgain()
+bool Game::playAgain()
 {
 	while (true)
 	{
